@@ -1,4 +1,4 @@
-// Store our API endpoint inside queryUrl
+// Storing API endpoint inside queryUrl
 var queryUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
 
 
@@ -73,30 +73,21 @@ function createFeatures(earthquakeData) {
   var earthquakes = L.geoJSON(earthquakeData, {
     onEachFeature: onEachFeature
   });
-  
-  // Sending our earthquakes layer to the createMap function
+ 
   createMap(earthquakes, circleLayer);
 }
-
-
-
-//Create gradient colors for the size of the magnitudes
-
-//Create locations for the seismic circles
-
-//Make a layer
 
 function createMap(earthquakes, circleLayer) {
     // Adding tile layer
   
     
-    // Grabbing our GeoJSON data..
+    // Grabbing GeoJSON data
     d3.json(link, function(data) {
       // Creating a GeoJSON layer with the retrieved data
       L.geoJson(data).addTo(map);
     });
     
-    // Define a baseMaps object to hold our base layers
+    // BaseMaps object to hold base layers
     var baseMaps = {
       "Street Map": streetmap,
       "Dark Map": darkmap
